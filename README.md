@@ -1,6 +1,7 @@
 # Async DataFrame Processing with Docker
 
 For experiment of ChatGPT canvas
+
 This repository contains an example project for processing multiple pandas DataFrames asynchronously, utilizing MongoDB as the database backend. The setup is containerized using Docker and Docker Compose for easy deployment.
 
 ## Prerequisites
@@ -38,14 +39,14 @@ docker-compose up --build
 
 This command will:
 - Build the Docker image for the Python application.
-- Start a MongoDB container.
+- Build the MongoDB container using the provided Dockerfile.
 - Start the async processing application container.
 
 The application will process the CSV files asynchronously and store the results in the MongoDB database.
 
 ### Environment Variables
 
-- `MONGO_URI`: MongoDB connection URI. Defaults to `mongodb://mongodb:27017/`.
+- `MONGO_URI`: MongoDB connection URI. Defaults to `mongodb://root:example@mongodb:27017/`.
 - `DB_NAME`: MongoDB database name. Defaults to `database_name`.
 
 ### Stopping the Application
@@ -59,6 +60,7 @@ docker-compose down
 ### File Structure
 
 - `Dockerfile`: Defines the image for the Python application.
+- `Dockerfile.mongodb`: Defines the image for the MongoDB container.
 - `docker-compose.yml`: Defines and configures services (MongoDB and the Python app).
 - `async_dataframe_processing.py`: The main Python script to process the DataFrames.
 - `README.md`: This file.
